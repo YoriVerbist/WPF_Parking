@@ -1,0 +1,44 @@
+﻿<Window x:Class="WpfAppParking.View.EditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppParking.View"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        DataContext="{Binding Source={StaticResource mainViewModelLocator},  Path=EditViewModel}"
+        mc:Ignorable="d"         
+        Title="EditWindow" Height="450" Width="800">
+    <Grid  Grid.Column="1" Margin="20" Background="#ddd">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="30" ></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+
+        <TextBlock Grid.Row="1" Text="Totale plaatsen:" FontWeight="Bold" />
+        <TextBlock Grid.Row="2" Text="Bezette plaatsen:" FontWeight="Bold" />
+        <TextBlock Grid.Row="3" Text="Betalend:" FontWeight="Bold" />
+
+
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedRij.Totale_plaatsen}" Margin="0,0,570,5" TextWrapping="Wrap"  />
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding SelectedRij.Bezette_plaatsen}" Margin="0,0,570,10" TextWrapping="Wrap"  />
+        <CheckBox  Grid.Row="3" Grid.Column="1" Content="Volzet" IsChecked="{Binding SelectedParking.Betalend, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+
+        <!--<StackPanel Grid.Row="5" Grid.Column="1">-->
+        
+            <Button Background="#f00" Command="{Binding DeleteCommand}" FontWeight="Bold" Width="150"  Grid.Column="1" Grid.Row="5"  BorderBrush="Black" Margin="58,12,394,0" materialDesign:ButtonAssist.CornerRadius="5" Content="Verwijderen"/>
+        <Button  Command="{Binding UpdateCommand}" FontWeight="Bold" Width="150"  Grid.Column="1" Grid.Row="5"  BorderBrush="Black" Margin="226,10,226,0" materialDesign:ButtonAssist.CornerRadius="5" Content="Opslaan"/>
+
+        <!--</StackPanel>-->
+    </Grid>
+</Window>

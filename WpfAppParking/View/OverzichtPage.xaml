@@ -1,0 +1,68 @@
+﻿<Page x:Class="WpfAppParking.View.OverzichtPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfAppParking.View"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      DataContext="{Binding Source={StaticResource mainViewModelLocator},  Path=OverzichtViewModel}"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="OverzichtPage">
+
+    <Grid Background="#ddd">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="35"></ColumnDefinition>
+            <ColumnDefinition Width="315"/>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <ListView Margin="0,47,35,62" ItemsSource="{Binding Rijs}" SelectedItem="{Binding SelectedRij}" Width="280" Grid.Column="1">
+            <ListView.ItemTemplate >
+
+                <DataTemplate >
+                    <Label Content="{Binding Totale_plaatsen}" FontSize="14"  FontWeight="Bold" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Grid Grid.Column="2" Margin="0,100,10,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" ></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Text="Totale plaatsen" FontWeight="Bold" />
+            <TextBlock Grid.Row="1" Text="Bezette plaatsen:" FontWeight="Bold" />
+            <TextBlock Grid.Row="2" Text="Volzet:" FontWeight="Bold" />
+
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SelectedRij.Totale_plaatsen, ValidatesOnDataErrors=True}" />
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedRij.Bezette_plaatsen}"   TextWrapping="WrapWithOverflow" Margin="0,0,10,10"  />
+            <TextBlock  Grid.Row="2" Grid.Column="1">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding SelectedRij.Volzet}" Value="True">
+                                <Setter Property="Text" Value="Deze rij is volzet."/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding SelectedRij.Volzet}" Value="False">
+                                <Setter Property="Text" Value="Deze rij is nog niet volzet."/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+
+            <Button  Command="{Binding WijzigenCommand}" FontWeight="Bold" Width="150"    BorderBrush="Black" Margin="10,120,280,-143" materialDesign:ButtonAssist.CornerRadius="5" Content="Aanpassen" Grid.Row="4" Grid.ColumnSpan="2"/>
+            <Button  Command="{Binding ToevoegenCommand}" FontWeight="Bold"    BorderBrush="Black" Margin="53,122,57,-142" materialDesign:ButtonAssist.CornerRadius="5" Content="Nieuwe rij aanmaken" Grid.Row="4" Grid.Column="1"/>
+
+
+        </Grid>
+    </Grid>
+</Page>

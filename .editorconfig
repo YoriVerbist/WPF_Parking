@@ -1,0 +1,7 @@
+﻿[*.cs]
+
+# IDE0027: Use expression body for accessors
+csharp_style_expression_bodied_accessors = true:none
+
+# CS0067: The event 'BaseCommand.CanExecuteChanged' is never used
+dotnet_diagnostic.CS0067.severity = silent
