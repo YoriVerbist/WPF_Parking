@@ -13,6 +13,7 @@ namespace WpfAppParking.Model
         public event PropertyChangedEventHandler PropertyChanged;
 
         private int id;
+        private int plaats_id;
         private string naam;
         
         public int Parking_ID
@@ -25,6 +26,20 @@ namespace WpfAppParking.Model
             set
             {
                 id = value;
+                NotifyPropertyChanged();
+            }
+        }
+        
+        public int PlaatsID
+        {
+            get
+            {
+                return plaats_id;
+            }
+
+            set
+            {
+                plaats_id = value;
                 NotifyPropertyChanged();
             }
         }

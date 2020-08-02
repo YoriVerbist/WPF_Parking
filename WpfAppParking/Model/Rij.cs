@@ -84,7 +84,14 @@ namespace WpfAppParking.Model
 
             set
             {
-                volzet = value;
+                if (bezette_plaatsen == totale_plaatsen)
+                {
+                    volzet = true;
+                }
+                else
+                {
+                    volzet = false;
+                }
                 NotifyPropertyChanged();
             }
         }

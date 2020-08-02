@@ -13,14 +13,14 @@ namespace WpfAppParking.Model
         public event PropertyChangedEventHandler PropertyChanged;
 
         private int id;
-        private int rij_id;
+        private string naam;
         private bool bezet;
 
         public int ID
         {
             get
             {
-                return ID;
+                return id;
             }
             set
             {
@@ -29,28 +29,15 @@ namespace WpfAppParking.Model
             }
         }
 
-        public int Rij_Id
+        public string Naam
         {
             get
             {
-                return rij_id;
+                return naam;
             }
             set
             {
-                rij_id = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        public bool Bezet
-        {
-            get
-            {
-                return bezet;
-            }
-            set
-            {
-                bezet = value;
+                naam = value;
                 NotifyPropertyChanged();
             }
         }

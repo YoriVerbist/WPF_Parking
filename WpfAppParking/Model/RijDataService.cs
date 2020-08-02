@@ -31,7 +31,7 @@ namespace WpfAppParking.Model
 
             return rijs;
         }
-
+        
 
         public void UpdateRij(Rij rij)
         {

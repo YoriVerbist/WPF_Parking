@@ -3,12 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfAppParking.View"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         DataContext="{Binding Source={StaticResource mainViewModelLocator},  Path=EditViewModel}"
         mc:Ignorable="d"         
         Title="EditWindow" Height="450" Width="800">
-    <Grid  Grid.Column="1" Margin="20" Background="#ddd">
+    <Grid Margin="20" Background="#ddd">
         <Grid.RowDefinitions>
             <RowDefinition Height="100"></RowDefinition>
             <RowDefinition Height="30" ></RowDefinition>
