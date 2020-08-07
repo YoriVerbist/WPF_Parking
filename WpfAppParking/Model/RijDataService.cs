@@ -46,10 +46,8 @@ namespace WpfAppParking.Model
         {
             // SQL statement delete 
             string sql = "Delete Rij where ID = @ID";
-            string sqlPlaats = "Delete Plaats where Rij_Id = @ID";
 
             // Uitvoeren SQL statement en doorgeven parametercollectie
-            db.Execute(sqlPlaats, new { rij.ID });
             db.Execute(sql, new { rij.ID });
         }
 
@@ -59,7 +57,7 @@ namespace WpfAppParking.Model
             string sql = "Insert Rij(Totale_plaatsen,Bezette_plaatsen,Volzet, Parking_ID) values(@Totale_plaatsen,@Bezette_plaatsen,@Volzet, @ParkingID)";
 
             // Uitvoeren SQL statement en doorgeven parametercollectie
-            db.Execute(sql, new { rij.Totale_plaatsen, rij.Bezette_plaatsen, rij.Volzet, rij.ParkingID });
+            db.Execute(sql, new { rij.Totale_plaatsen, rij.Bezette_plaatsen, rij.Volzet, rij.Parking_ID });
         }
     }
 }

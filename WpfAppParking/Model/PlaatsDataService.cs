@@ -6,7 +6,7 @@ using WpfAppParking.Extensions;
 
 namespace WpfAppParking.Model
 {
-    public class PlaatsDataService
+    class PlaatsDataService
     {
         private static string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["local"].ConnectionString;
         

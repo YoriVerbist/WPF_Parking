@@ -23,19 +23,19 @@
 
 
 
-        <TextBlock Grid.Row="1" Text="Totale plaatsen:" FontWeight="Bold" />
-        <TextBlock Grid.Row="2" Text="Bezette plaatsen:" FontWeight="Bold" />
-        <TextBlock Grid.Row="3" Text="Betalend:" FontWeight="Bold" />
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Totale plaatsen:" FontWeight="Bold" />
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Bezette plaatsen:" FontWeight="Bold" />
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Betalend:" FontWeight="Bold" />
 
 
         <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedRij.Totale_plaatsen}" Margin="0,0,570,5" TextWrapping="Wrap"  />
         <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding SelectedRij.Bezette_plaatsen}" Margin="0,0,570,10" TextWrapping="Wrap"  />
-        <CheckBox  Grid.Row="3" Grid.Column="1" Content="Volzet" IsChecked="{Binding SelectedParking.Betalend, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox  Grid.Row="3" Grid.Column="1" Content="Volzet" IsChecked="{Binding SelectedRij.Volzet, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
 
         <!--<StackPanel Grid.Row="5" Grid.Column="1">-->
         
-            <Button Background="#f00" Command="{Binding DeleteCommand}" FontWeight="Bold" Width="150"  Grid.Column="1" Grid.Row="5"  BorderBrush="Black" Margin="58,12,394,0" materialDesign:ButtonAssist.CornerRadius="5" Content="Verwijderen"/>
+        <Button Background="#f00" Command="{Binding DeleteCommand}" FontWeight="Bold" Width="150"  Grid.Column="1" Grid.Row="5"  BorderBrush="Black" Margin="58,12,394,0" materialDesign:ButtonAssist.CornerRadius="5" Content="Verwijderen"/>
         <Button  Command="{Binding UpdateCommand}" FontWeight="Bold" Width="150"  Grid.Column="1" Grid.Row="5"  BorderBrush="Black" Margin="226,10,226,0" materialDesign:ButtonAssist.CornerRadius="5" Content="Opslaan"/>
 
         <!--</StackPanel>-->
