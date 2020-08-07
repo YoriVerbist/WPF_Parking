@@ -14,7 +14,7 @@ namespace WpfAppParking.Model
         public event PropertyChangedEventHandler PropertyChanged;
 
         private int id;
-        private int parkingID;
+        private int parking_ID;
         private int totale_plaatsen;
         private int bezette_plaatsen;
         private bool volzet;
@@ -33,16 +33,16 @@ namespace WpfAppParking.Model
             }
         }
 
-        public int ParkingID
+        public int Parking_ID
         {
             get
             {
-                return parkingID;
+                return parking_ID;
             }
 
             set
             {
-                parkingID = value;
+                parking_ID = value;
                 NotifyPropertyChanged();
             }
         }

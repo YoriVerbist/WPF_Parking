@@ -16,7 +16,7 @@ namespace WpfAppParking.Model
         private int plaats_id;
         private string naam;
         
-        public int Parking_ID
+        public int ID
         {
             get
             {
