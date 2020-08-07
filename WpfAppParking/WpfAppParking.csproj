@@ -102,6 +102,7 @@
     <Compile Include="Model\Parking.cs" />
     <Compile Include="Model\ParkingDataService.cs" />
     <Compile Include="Model\Plaats.cs" />
+    <Compile Include="Model\PlaatsDataService.cs" />
     <Compile Include="Model\Rij.cs" />
     <Compile Include="Model\RijDataService.cs" />
     <Compile Include="ViewModel\BaseCommand.cs" />
