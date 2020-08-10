@@ -6,7 +6,7 @@ using WpfAppParking.Model;
 
 namespace WpfAppParking.ViewModel
 {
-    public class OverzichtPlaatsenViewModel : BaseViewModel
+    class OverzichtParkingenViewModel : BaseViewModel
     {
         private DialogService dialogservice;
 
@@ -76,7 +76,7 @@ namespace WpfAppParking.ViewModel
             }
         }
 
-        public OverzichtPlaatsenViewModel()
+        public OverzichtParkingenViewModel()
         {
             ParkingDataService ds = new ParkingDataService();
             Parkingen = ds.GetParkingen();
