@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:WpfAppParking.View"
+      DataContext="{Binding Source={StaticResource mainViewModelLocator},  Path=OverzichtPlaatsenViewModel}"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d"
       Title="OverzichtPlaatsenPage" Height="450" Width="800">
@@ -14,7 +15,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <ListView Margin="0,47,35,62" ItemsSource="{Binding Parkingen}" SelectedItem="{Binding SelectedParking}" Width="280" Grid.Column="1">
+        <ListView Margin="0,47,35,62" ItemsSource="{Binding Plaatsen}" SelectedItem="{Binding SelectedPlaats}" Width="280" Grid.Column="1">
             <ListView.ItemTemplate >
 
                 <DataTemplate >
@@ -37,7 +38,7 @@
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="0" Text="Locale parkingen:" FontWeight="Bold" />
 
-            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SelectedPlaats.Totale_plaatsen, ValidatesOnDataErrors=True}" />
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SelectedPlaats.Naam, ValidatesOnDataErrors=True}" />
 
             <Button  Command="{Binding WijzigenCommand}" FontWeight="Bold" Width="150"    BorderBrush="Black" Margin="10,120,280,-143" materialDesign:ButtonAssist.CornerRadius="5" Content="Aanpassen" Grid.Row="4" Grid.ColumnSpan="2"/>
             <Button  Command="{Binding ToevoegenCommand}" FontWeight="Bold"    BorderBrush="Black" Margin="53,122,57,-142" materialDesign:ButtonAssist.CornerRadius="5" Content="Nieuwe plaats aanmaken" Grid.Row="4" Grid.Column="1"/>

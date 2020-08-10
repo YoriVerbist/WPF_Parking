@@ -114,15 +114,7 @@ namespace WpfAppParking.Model
 
             }
         }
-
-        //public Rij(int ID, int parkingID, int plaatsen, int bezette_plaatsen, bool bezet)
-        //{
-        //    ParkingID = parkingID;
-        //    Totale_plaatsen = plaatsen;
-        //    Bezette_plaatsen = bezette_plaatsen;
-        //    Volzet = bezet;
-        //}
-
+        
         public Rij()
         { }
 

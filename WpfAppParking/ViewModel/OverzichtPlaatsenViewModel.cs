@@ -136,7 +136,7 @@ namespace WpfAppParking.ViewModel
             {
                 Messenger.Default.Send<Plaats>(SelectedPlaats);
 
-                dialogService.ShowDetailPlaatsenDialog();
+                dialogService.ShowEditPlaatsenDialog();
             }
         }
         

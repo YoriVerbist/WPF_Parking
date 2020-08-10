@@ -14,8 +14,6 @@ namespace WpfAppParking.Model
 
         private int id;
         private string naam;
-        private bool bezet;
-        private int rij_id;
 
         public int ID
         {
@@ -26,19 +24,6 @@ namespace WpfAppParking.Model
             set
             {
                 id = value;
-                NotifyPropertyChanged();
-            }
-        }
-        
-        public int Rij_id
-        {
-            get
-            {
-                return rij_id;
-            }
-            set
-            {
-                rij_id = value;
                 NotifyPropertyChanged();
             }
         }
@@ -74,6 +59,9 @@ namespace WpfAppParking.Model
 
             }
         }
+        
+        public Plaats()
+        { }
 
         public void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {

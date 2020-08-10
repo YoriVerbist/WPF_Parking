@@ -1,3 +1,4 @@
+using System;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
@@ -36,7 +37,7 @@ namespace WpfAppParking.Model
 
         public void InsertPlaats(Plaats plaats)
         {
-            string sql = "Insert Plaats(Naam) values(@ID)";
+            string sql = "Insert Plaats(Naam) values(@Naam)";
             db.Execute(sql, new {plaats.Naam});
         }
     }

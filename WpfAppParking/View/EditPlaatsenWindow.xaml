@@ -4,9 +4,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:WpfAppParking.View"
+        DataContext="{Binding Source={StaticResource mainViewModelLocator},  Path=EditPlaatsenViewModel}"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="EditPlaatsenWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Margin="20" Background="#ddd">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="30" ></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Naam:" FontWeight="Bold" />
         
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedPlaats.Naam}" TextWrapping="Wrap" Width="200"  />
+
+        <!--<StackPanel Grid.Row="5" Grid.Column="1">-->
+        
+        <Button Background="#f00" Command="{Binding DeleteCommand}" FontWeight="Bold" Width="150"  Grid.Column="1" Grid.Row="5"  BorderBrush="Black" Margin="58,12,394,0" materialDesign:ButtonAssist.CornerRadius="5" Content="Verwijderen"/>
+        <Button  Command="{Binding UpdateCommand}" FontWeight="Bold" Width="150"  Grid.Column="1" Grid.Row="5"  BorderBrush="Black" Margin="226,10,226,0" materialDesign:ButtonAssist.CornerRadius="5" Content="Opslaan"/>
+
+        <!--</StackPanel>-->
     </Grid>
 </Window>
