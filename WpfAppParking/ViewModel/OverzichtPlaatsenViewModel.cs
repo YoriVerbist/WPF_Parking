@@ -1,3 +1,4 @@
+using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using WpfAppParking.Extensions;
@@ -120,7 +121,7 @@ namespace WpfAppParking.ViewModel
         private void OnMessageReceived(UpdateFinishedMessage message)
         {
             //na update of delete mag detailvenster sluiten
-            dialogService.CloseDetailPlaatsenDialog();
+            dialogService.CloseEditPlaatsenDialog();
 
             //na Delete/Insert moet collectie Koffies terug ingeladen worden
             if (message.Type != UpdateFinishedMessage.MessageType.Updated)

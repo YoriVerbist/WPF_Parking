@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
 using WpfAppParking.Extensions;
 using WpfAppParking.Messages;
 using WpfAppParking.Model;
@@ -42,6 +43,7 @@ namespace WpfAppParking.ViewModel
         {
 
             RijDataService ds = new RijDataService();
+            Console.Write(SelectedRij);
 
             if (SelectedRij.ID != 0)
             {

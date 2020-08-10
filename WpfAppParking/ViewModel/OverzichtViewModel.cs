@@ -128,7 +128,7 @@ namespace WpfAppParking.ViewModel
         private void OnMessageReceived(UpdateFinishedMessage message)
         {
             //na update of delete mag detailvenster sluiten
-            dialogService.CloseDetailDialog();
+            dialogService.CloseEditDialog();
 
             //na Delete/Insert moet collectie Koffies terug ingeladen worden
             if (message.Type != UpdateFinishedMessage.MessageType.Updated)
@@ -145,7 +145,7 @@ namespace WpfAppParking.ViewModel
             {
                 Messenger.Default.Send<Rij>(SelectedRij);
 
-                dialogService.ShowDetailDialog();
+                dialogService.ShowEditDialog();
             }
         }
         

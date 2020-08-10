@@ -105,6 +105,7 @@
     <Compile Include="Model\PlaatsDataService.cs" />
     <Compile Include="Model\Rij.cs" />
     <Compile Include="Model\RijDataService.cs" />
+    <Compile Include="ViewModelLocator.cs" />
     <Compile Include="ViewModel\BaseCommand.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\DetailParkingenViewModel.cs" />
@@ -118,7 +119,6 @@
     <Compile Include="ViewModel\OverzichtViewModel.cs" />
     <Compile Include="ViewModel\SplashscreenViewModel.cs" />
     <Compile Include="ViewModel\StartPageViewModel.cs" />
-    <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\DetailParkingenWindow.xaml.cs">
       <DependentUpon>DetailParkingenWindow.xaml</DependentUpon>
     </Compile>
