@@ -24,7 +24,7 @@
 
         <TextBlock Grid.Row="1" Grid.Column="0" Text="Naam:" FontWeight="Bold" />
         
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedPlaats}" TextWrapping="Wrap" Width="200"  />
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedPlaats.Naam}" TextWrapping="Wrap" Width="200"  />
 
         <!--<StackPanel Grid.Row="5" Grid.Column="1">-->
         
