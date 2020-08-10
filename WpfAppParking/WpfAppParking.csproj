@@ -109,6 +109,8 @@
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\DetailViewModel.cs" />
     <Compile Include="ViewModel\EditViewModel.cs" />
+    <Compile Include="ViewModel\OverzichtParkingenViewModel.cs" />
+    <Compile Include="ViewModel\OverzichtPlaatsenViewModel.cs" />
     <Compile Include="ViewModel\OverzichtViewModel.cs" />
     <Compile Include="ViewModel\SplashscreenViewModel.cs" />
     <Compile Include="ViewModel\StartPageViewModel.cs" />
@@ -128,6 +130,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\OverzichtPlaatsenPage.xaml.cs">
+      <DependentUpon>OverzichtPlaatsenPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Splashscreen.xaml.cs">
       <DependentUpon>Splashscreen.xaml</DependentUpon>
@@ -151,6 +156,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\OverzichtPlaatsenPage.xaml" />
     <Page Include="View\Splashscreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -76,11 +76,10 @@ namespace WpfAppParking.Model
 
             }
         }
-
-        public override string ToString()
-        {
-            return naam;
-        }
+        
+        public Parking()
+        {}
+        
         public void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             if (PropertyChanged != null)
