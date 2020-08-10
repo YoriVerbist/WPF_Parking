@@ -88,9 +88,9 @@ namespace WpfAppParking.ViewModel
             dialogService = new DialogService();
 
             //koppelen commands
-            WijzigenCommand = new BaseCommand(WijzigenRijs);
-            ToevoegenCommand = new BaseCommand(ToevoegenRijs);
-            DetailCommand = new BaseCommand(DetailRij);
+            WijzigenCommand = new BaseCommand(WijzigenPlaatsen);
+            ToevoegenCommand = new BaseCommand(ToevoegenPlaatsen);
+            DetailCommand = new BaseCommand(DetailPlaats);
 
             //luisteren naar messages vanuit detailvenster
             Messenger.Default.Register<UpdateFinishedMessage>(this, OnMessageReceived);
@@ -104,7 +104,7 @@ namespace WpfAppParking.ViewModel
             
             Messenger.Default.Send<Plaats>(SelectedPlaats);
 
-            dialogService = ShowEditPlaatsenDialog();
+            dialogService.ShowEditPlaatsenDialog();
         }
 
         public void DetailPlaats()
@@ -113,7 +113,7 @@ namespace WpfAppParking.ViewModel
             {
                 Messenger.Default.Send<Plaats>(SelectedPlaats);
 
-                dialogService.ShowOverzichtPlaatsenDialog();
+                dialogService.ShowDetailPlaatsenDialog();
             }
         }
 

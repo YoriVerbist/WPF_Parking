@@ -107,7 +107,11 @@
     <Compile Include="Model\RijDataService.cs" />
     <Compile Include="ViewModel\BaseCommand.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\DetailParkingenViewModel.cs" />
+    <Compile Include="ViewModel\DetailPlaatsenViewModel.cs" />
     <Compile Include="ViewModel\DetailViewModel.cs" />
+    <Compile Include="ViewModel\EditParkingenViewModel.cs" />
+    <Compile Include="ViewModel\EditPlaatsenViewModel.cs" />
     <Compile Include="ViewModel\EditViewModel.cs" />
     <Compile Include="ViewModel\OverzichtParkingenViewModel.cs" />
     <Compile Include="ViewModel\OverzichtPlaatsenViewModel.cs" />
