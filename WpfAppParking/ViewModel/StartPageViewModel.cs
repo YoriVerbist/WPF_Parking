@@ -23,7 +23,7 @@ namespace WpfAppParking.ViewModel
         private void GoToHome()
         {
             PageNavigationService pageNavigationService = new PageNavigationService();
-            pageNavigationService.Navigate("/place-details");
+            pageNavigationService.Navigate("/place-plaats-details");
         }
     }
 }

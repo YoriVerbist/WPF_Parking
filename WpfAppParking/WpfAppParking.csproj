@@ -115,8 +115,20 @@
     <Compile Include="ViewModel\SplashscreenViewModel.cs" />
     <Compile Include="ViewModel\StartPageViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\DetailParkingenWindow.xaml.cs">
+      <DependentUpon>DetailParkingenWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DetailPlaatsenWindow.xaml.cs">
+      <DependentUpon>DetailPlaatsenWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DetailWindow.xaml.cs">
       <DependentUpon>DetailWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditParkingenWindow.xaml.cs">
+      <DependentUpon>EditParkingenWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditPlaatsenWindow.xaml.cs">
+      <DependentUpon>EditPlaatsenWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EditWindow.xaml.cs">
       <DependentUpon>EditWindow.xaml</DependentUpon>
@@ -131,6 +143,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="View\OverzichtParkingenPage.xaml.cs">
+      <DependentUpon>OverzichtParkingenPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\OverzichtPlaatsenPage.xaml.cs">
       <DependentUpon>OverzichtPlaatsenPage.xaml</DependentUpon>
     </Compile>
@@ -140,10 +155,14 @@
     <Compile Include="View\StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\DetailParkingenWindow.xaml" />
+    <Page Include="View\DetailPlaatsenWindow.xaml" />
     <Page Include="View\DetailWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\EditParkingenWindow.xaml" />
+    <Page Include="View\EditPlaatsenWindow.xaml" />
     <Page Include="View\EditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,6 +175,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\OverzichtParkingenPage.xaml" />
     <Page Include="View\OverzichtPlaatsenPage.xaml" />
     <Page Include="View\Splashscreen.xaml">
       <SubType>Designer</SubType>

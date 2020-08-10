@@ -16,7 +16,7 @@ namespace WpfAppParking.Extensions
         Window RijOverzichtView = null;
 
         public DialogService() { }
-
+        
         public void ShowDetailDialog()
         {
             RijDetailView = new EditWindow();

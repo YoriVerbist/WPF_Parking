@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using WpfAppParking.Extensions;
+using WpfAppParking.Helpers;
 using WpfAppParking.Messages;
 using WpfAppParking.Model;
 
@@ -8,7 +9,7 @@ namespace WpfAppParking.ViewModel
 {
     class OverzichtParkingenViewModel : BaseViewModel
     {
-        private DialogService dialogservice;
+        private DialogService dialogService;
 
         private ObservableCollection<Parking> parkingen;
 
@@ -91,6 +92,8 @@ namespace WpfAppParking.ViewModel
 
             //luisteren naar messages vanuit detailvenster
             Messenger.Default.Register<UpdateFinishedMessage>(this, OnMessageReceived);
+            
+            BindCommands();
         }
 
         private void ToevoegenParkingen()
@@ -99,7 +102,7 @@ namespace WpfAppParking.ViewModel
             
             Messenger.Default.Send<Parking>(SelectedParking);
             
-            dialogservice.ShowEditParkingDialog();
+            dialogService.ShowEditParkingDialog();
         }
 
         private void DetailParking()
@@ -108,14 +111,14 @@ namespace WpfAppParking.ViewModel
             {
                 Messenger.Default.Send<Parking>(SelectedParking);
 
-                dialogservice.ShowDetailParkingenDialog();
+                dialogService.ShowDetailParkingenDialog();
             }
         }
 
         private void OnMessageReceived(UpdateFinishedMessage message)
         {
             //na update of delete mag detailvenster sluiten
-            dialogservice.CloseDetailDialog();
+            dialogService.CloseDetailDialog();
 
             //na Delete/Insert moet collectie Koffies terug ingeladen worden
             if (message.Type != UpdateFinishedMessage.MessageType.Updated)
@@ -131,8 +134,19 @@ namespace WpfAppParking.ViewModel
             {
                 Messenger.Default.Send<Parking>(SelectedParking);
 
-                dialogservice.ShowEditParkingDialog();
+                dialogService.ShowEditParkingDialog();
             }
+        }
+        
+        public ICommand GoToHomeCommand { get; set; }
+        private void BindCommands()
+        {
+            GoToHomeCommand = new BaseCommand(GoToHome);
+        }
+        private void GoToHome()
+        {
+            PageNavigationService pageNavigationService = new PageNavigationService();
+            pageNavigationService.Navigate("/place-details");
         }
     }
 }

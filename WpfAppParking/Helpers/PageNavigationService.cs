@@ -11,6 +11,8 @@ namespace WpfAppParking.Helpers
     {
         OverzichtPage overzichtPage = null;
         StartPage startPage = null;
+        OverzichtPlaatsenPage overzichtPlaatsenPage = null;
+        OverzichtParkingenPage overzichtParkingenPage = null;
         public PageNavigationService()
         {
 
@@ -27,6 +29,14 @@ namespace WpfAppParking.Helpers
                 case "/place-details":
                     overzichtPage = new OverzichtPage();
                     ApplicationHelper.NavigationService.Navigate(overzichtPage);
+                    break;
+                case "/place-parking-details":
+                    overzichtParkingenPage = new OverzichtParkingenPage();
+                    ApplicationHelper.NavigationService.Navigate(overzichtParkingenPage);
+                    break;
+                case "/place-plaats-details":
+                    overzichtPlaatsenPage = new OverzichtPlaatsenPage();
+                    ApplicationHelper.NavigationService.Navigate(overzichtPlaatsenPage);
                     break;
                 default:
                     break;

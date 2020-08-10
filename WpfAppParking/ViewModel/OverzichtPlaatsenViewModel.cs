@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using WpfAppParking.Extensions;
+using WpfAppParking.Helpers;
 using WpfAppParking.Messages;
 using WpfAppParking.Model;
 
@@ -93,6 +94,8 @@ namespace WpfAppParking.ViewModel
 
             //luisteren naar messages vanuit detailvenster
             Messenger.Default.Register<UpdateFinishedMessage>(this, OnMessageReceived);
+            
+            BindCommands();
         }
 
         public void ToevoegenPlaatsen()
@@ -135,6 +138,17 @@ namespace WpfAppParking.ViewModel
 
                 dialogService.ShowDetailPlaatsenDialog();
             }
+        }
+        
+        public ICommand GoToHomeCommand { get; set; }
+        private void BindCommands()
+        {
+            GoToHomeCommand = new BaseCommand(GoToHome);
+        }
+        private void GoToHome()
+        {
+            PageNavigationService pageNavigationService = new PageNavigationService();
+            pageNavigationService.Navigate("/place-parking-details");
         }
     }
 }
