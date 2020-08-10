@@ -139,14 +139,22 @@ namespace WpfAppParking.ViewModel
         }
         
         public ICommand GoToHomeCommand { get; set; }
+        public ICommand GoBackCommand { get; set; }
         private void BindCommands()
         {
             GoToHomeCommand = new BaseCommand(GoToHome);
+            GoBackCommand = new BaseCommand(GoBack);
         }
         private void GoToHome()
         {
             PageNavigationService pageNavigationService = new PageNavigationService();
             pageNavigationService.Navigate("/place-details");
+        }
+        
+        private void GoBack()
+        {
+            PageNavigationService pageNavigationService = new PageNavigationService();
+            pageNavigationService.Navigate("/place-plaats-details");
         }
     }
 }
