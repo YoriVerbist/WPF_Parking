@@ -20,11 +20,17 @@ namespace WpfAppParking.Model
         // openen connectie
         private static IDbConnection db = new SqlConnection(connectionString);
 
-        public ObservableCollection<Parking> GetParkingen()
+        public ObservableCollection<Parking> GetParkingen(Plaats plaats)
         {
-            string sql = "Select * from Parking order by Naam";
+            Console.WriteLine(plaats);
+            if (plaats == null)
+            {
+                plaats = new Plaats();
+                plaats.ID = 0;
+            }
+            string sql = "Select * from Parking where Plaats_ID =@ID order by Naam";
 
-            ObservableCollection<Parking> Parkingen = db.Query<Parking>(sql).ToObservableCollection();
+            ObservableCollection<Parking> Parkingen = db.Query<Parking>(sql, new {plaats.ID}).ToObservableCollection();
 
             return Parkingen;
         }

@@ -42,6 +42,7 @@
 
             <Button  Command="{Binding WijzigenCommand}" FontWeight="Bold" Width="150"    BorderBrush="Black" Margin="10,120,280,-143" materialDesign:ButtonAssist.CornerRadius="5" Content="Aanpassen" Grid.Row="4" Grid.ColumnSpan="2"/>
             <Button  Command="{Binding ToevoegenCommand}" FontWeight="Bold"    BorderBrush="Black" Margin="53,122,57,-142" materialDesign:ButtonAssist.CornerRadius="5" Content="Nieuwe plaats aanmaken" Grid.Row="4" Grid.Column="1"/>
+            <Button  Command="{Binding GoToHomeCommand}" FontWeight="Bold" Width="250"    BorderBrush="Black" materialDesign:ButtonAssist.CornerRadius="5" Content="Parkingen bekijken" Grid.Row="4" Grid.ColumnSpan="2"/>
             
         </Grid>
     </Grid>

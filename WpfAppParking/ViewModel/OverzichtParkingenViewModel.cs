@@ -4,6 +4,7 @@ using WpfAppParking.Extensions;
 using WpfAppParking.Helpers;
 using WpfAppParking.Messages;
 using WpfAppParking.Model;
+using Messenger = WpfAppParking.Extensions.Messenger;
 
 namespace WpfAppParking.ViewModel
 {
@@ -34,6 +35,21 @@ namespace WpfAppParking.ViewModel
                 NotifyPropertyChanged();
             }
         }
+        private Plaats selectedPlaats;
+
+        public Plaats SelectedPlaats
+        {
+            get
+            {
+                return selectedPlaats;
+            }
+            set
+            {
+                selectedPlaats = value;
+                NotifyPropertyChanged();
+            }
+        }
+        
 
         private ICommand toevoegenCommand;
         public ICommand ToevoegenCommand
@@ -79,12 +95,14 @@ namespace WpfAppParking.ViewModel
 
         public OverzichtParkingenViewModel()
         {
-            ParkingDataService ds = new ParkingDataService();
-            Parkingen = ds.GetParkingen();
+            Messenger.Default.Register<Plaats>(this, OnPlaatsRecieved);
             
+            ParkingDataService ds = new ParkingDataService();
+            Parkingen = ds.GetParkingen(SelectedPlaats);
+
             //instantiëren DialogService als singleton
             dialogService = new DialogService();
-
+            
             //koppelen commands
             WijzigenCommand = new BaseCommand(WijzigenParkingen);
             ToevoegenCommand = new BaseCommand(ToevoegenParkingen);
@@ -124,7 +142,7 @@ namespace WpfAppParking.ViewModel
             if (message.Type != UpdateFinishedMessage.MessageType.Updated)
             {
                 ParkingDataService ds = new ParkingDataService();
-                Parkingen = ds.GetParkingen();
+                Parkingen = ds.GetParkingen(SelectedPlaats);
             }
         }
 
@@ -155,6 +173,11 @@ namespace WpfAppParking.ViewModel
         {
             PageNavigationService pageNavigationService = new PageNavigationService();
             pageNavigationService.Navigate("/place-plaats-details");
+        }
+        
+        private void OnPlaatsRecieved(Plaats plaats)
+        {
+            SelectedPlaats = plaats;
         }
     }
 }

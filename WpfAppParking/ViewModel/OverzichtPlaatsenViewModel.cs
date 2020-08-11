@@ -5,6 +5,7 @@ using WpfAppParking.Extensions;
 using WpfAppParking.Helpers;
 using WpfAppParking.Messages;
 using WpfAppParking.Model;
+using Messenger = WpfAppParking.Extensions.Messenger;
 
 namespace WpfAppParking.ViewModel
 {
@@ -148,8 +149,12 @@ namespace WpfAppParking.ViewModel
         }
         private void GoToHome()
         {
-            PageNavigationService pageNavigationService = new PageNavigationService();
-            pageNavigationService.Navigate("/place-parking-details");
+            if (SelectedPlaats != null)
+            {
+                Messenger.Default.Send<Plaats>(SelectedPlaats);
+                PageNavigationService pageNavigationService = new PageNavigationService();
+                pageNavigationService.Navigate("/place-parking-details");
+            }
         }
     }
 }

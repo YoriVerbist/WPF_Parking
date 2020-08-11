@@ -4,9 +4,47 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:WpfAppParking.View"
+      DataContext="{Binding Source={StaticResource mainViewModelLocator},  Path=OverzichtParkingenViewModel}"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d"
       Title="OverzichtParkingenPage" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="35"></ColumnDefinition>
+            <ColumnDefinition Width="315"/>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <ListView Margin="0,47,35,62" ItemsSource="{Binding Parkingen}" SelectedItem="{Binding SelectedParking}" Width="280" Grid.Column="1">
+            <ListView.ItemTemplate >
+
+                <DataTemplate >
+                    <Label Content="{Binding Naam}" FontSize="14"  FontWeight="Bold" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Grid Grid.Column="2" Margin="0,100,10,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" ></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Text="Locale Rijen:" FontWeight="Bold" />
+
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SelectedParking.Naam, ValidatesOnDataErrors=True}" />
+
+            <Button  Command="{Binding WijzigenCommand}" FontWeight="Bold" Width="150"    BorderBrush="Black" Margin="10,120,280,-143" materialDesign:ButtonAssist.CornerRadius="5" Content="Aanpassen" Grid.Row="4" Grid.ColumnSpan="2"/>
+            <Button  Command="{Binding ToevoegenCommand}" FontWeight="Bold"    BorderBrush="Black" Margin="53,122,57,-142" materialDesign:ButtonAssist.CornerRadius="5" Content="Nieuwe parking aanmaken" Grid.Row="4" Grid.Column="1"/>
+            <Button  Command="{Binding GoToHomeCommand}" FontWeight="Bold" Width="250"    BorderBrush="Black" materialDesign:ButtonAssist.CornerRadius="5" Content="Rijen bekijken" Grid.Row="3" Grid.ColumnSpan="2"/>
+            <Button  Command="{Binding GoBackCommand}" FontWeight="Bold" Width="250"    BorderBrush="Black" materialDesign:ButtonAssist.CornerRadius="5" Content="Terug" Grid.Row="4" Grid.ColumnSpan="2"/>
+            
+        </Grid>
     </Grid>
 </Page>
