@@ -116,10 +116,13 @@ namespace WpfAppParking.ViewModel
 
         private void ToevoegenParkingen()
         {
+            Messenger.Default.Register<Plaats>(this, OnPlaatsRecieved);
+
             SelectedParking = new Parking();
+            SelectedParking.Plaats_ID = SelectedPlaats.ID;
             
             Messenger.Default.Send<Parking>(SelectedParking);
-            
+
             dialogService.ShowEditParkingDialog();
         }
 
@@ -136,7 +139,7 @@ namespace WpfAppParking.ViewModel
         private void OnMessageReceived(UpdateFinishedMessage message)
         {
             //na update of delete mag detailvenster sluiten
-            dialogService.CloseDetailDialog();
+            dialogService.CloseEditParkingDialog();
 
             //na Delete/Insert moet collectie Koffies terug ingeladen worden
             if (message.Type != UpdateFinishedMessage.MessageType.Updated)

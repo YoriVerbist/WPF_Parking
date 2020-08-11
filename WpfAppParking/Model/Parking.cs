@@ -30,7 +30,7 @@ namespace WpfAppParking.Model
             }
         }
         
-        public int PlaatsID
+        public int Plaats_ID
         {
             get
             {

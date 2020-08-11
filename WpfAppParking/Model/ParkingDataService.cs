@@ -22,7 +22,6 @@ namespace WpfAppParking.Model
 
         public ObservableCollection<Parking> GetParkingen(Plaats plaats)
         {
-            Console.WriteLine(plaats);
             if (plaats == null)
             {
                 plaats = new Plaats();
@@ -40,7 +39,7 @@ namespace WpfAppParking.Model
             // Sql update statement
             string sql = "Update Parking set Plaats_ID = @Plaats_ID, Naam = @naam where ID = @ID";
 
-            db.Execute(sql, new {parking.PlaatsID, parking.Naam, parking.ID});
+            db.Execute(sql, new {parking.Plaats_ID, parking.Naam, parking.ID});
         }
 
         public void DeleteParking(Parking parking)
@@ -54,7 +53,7 @@ namespace WpfAppParking.Model
         {
             string sql = "Insert Parking(Naam, Plaats_ID) values(@Naam, @Plaats_ID)";
 
-            db.Execute(sql, new {parking.Naam, parking.PlaatsID});
+            db.Execute(sql, new {parking.Naam, parking.Plaats_ID});
         }
     }
 }
