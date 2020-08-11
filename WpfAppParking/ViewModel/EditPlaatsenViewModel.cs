@@ -29,6 +29,7 @@ namespace WpfAppParking.ViewModel
         public EditPlaatsenViewModel()
         {
             Messenger.Default.Register<Plaats>(this, OnPlaatsRecieved);
+            Console.Write(SelectedPlaats);
             
             UpdateCommand = new BaseCommand(UpdatePlaats);
             DeleteCommand = new BaseCommand(DeletePlaats);
